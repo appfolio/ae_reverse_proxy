@@ -1,0 +1,17 @@
+version: 2.1
+
+jobs:
+  test_and_lint:
+    docker:
+      - image: circleci/ruby:2.6.3
+    steps:
+      - checkout
+      - run: gem install bundler -v 2.2.5
+      - run: bundle install
+      - run: bundle exec rake test
+      - run: bundle exec rubocop
+
+workflows:
+  test_and_lint:
+    jobs:
+      - test_and_lint
