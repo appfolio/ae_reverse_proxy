@@ -5,9 +5,10 @@ source 'https://rubygems.org' do
     gem 'bundler', '>= 1.10.4', '< 3'
     gem 'minitest', '>= 5.8', '< 6'
     gem 'mocha', '>= 1.11', '< 2'
-    gem 'rake', '>= 13', '< 14'
-    gem "webmock", '~> 3.11.1'
     gem 'pry'
+    gem 'rake', '>= 13', '< 14'
+    gem 'rubocop', '~> 1.8', require: false
+    gem 'webmock', '~> 3.11.1'
   end
 end
 

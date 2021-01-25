@@ -10,10 +10,10 @@ rescue Bundler::BundlerError => e
   exit e.status_code
 end
 
-$LOAD_PATH.unshift File.expand_path("../lib", __dir__)
-require "ae_reverse_proxy"
-require "rack/mock"
+$LOAD_PATH.unshift File.expand_path('../lib', __dir__)
+require 'ae_reverse_proxy'
+require 'rack/mock'
 
-require "minitest/autorun"
+require 'minitest/autorun'
 require 'mocha/minitest'
 require 'webmock/minitest'

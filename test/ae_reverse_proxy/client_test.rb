@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "test_helper"
+require 'test_helper'
 require 'addressable/uri'
 
 module AeReverseProxy
@@ -9,8 +9,6 @@ module AeReverseProxy
     # https://github.com/rack/rack/blob/master/test/spec_request.rb
     # https://www.rubydoc.info/gems/rack/Rack/MockRequest
     # https://www.rubydoc.info/gems/rack/Rack/Request
-
-
 
     def test_initialize
       uri_str = 'https://www.appfoleo.com:8080'
@@ -41,25 +39,26 @@ module AeReverseProxy
         end
       end
 
-      stub_request(:get, "https://www.appfoleo.com:8080/posts")
-      .with(
-        headers: {
-              'Content-Length'=>'0',
-              'Host'=>'www.appfoleo.com:8080',
-              'Origin'=>'https://www.appfoleo.com:8080',
-              'User-Agent'=>'Rails Testing'
-        }).to_return(status: 200, body: 'Everything is A-ok', headers: {})
-        
+      stub_request(:get, 'https://www.appfoleo.com:8080/posts')
+        .with(
+          headers: {
+            'Content-Length' => '0',
+            'Host' => 'www.appfoleo.com:8080',
+            'Origin' => 'https://www.appfoleo.com:8080',
+            'User-Agent' => 'Rails Testing',
+          },
+        ).to_return(status: 200, body: 'Everything is A-ok', headers: {})
+
       client.forward_request(test_env)
     end
 
     private
 
     def test_env(env_opts = {})
-      Rack::MockRequest.env_for("/posts?sort=desc", {
-        "HTTP_HOST"  => "test.host".b,
-        "REMOTE_ADDR"  => "0.0.0.0".b,
-        "HTTP_USER_AGENT" => "Rails Testing".b,
+      Rack::MockRequest.env_for('/posts?sort=desc', {
+        'HTTP_HOST' => 'test.host'.b,
+        'REMOTE_ADDR' => '0.0.0.0'.b,
+        'HTTP_USER_AGENT' => 'Rails Testing'.b,
       }.merge(env_opts))
     end
   end

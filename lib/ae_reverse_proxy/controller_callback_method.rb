@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'addressable/uri'
 
 module AeReverseProxy
@@ -6,11 +8,11 @@ module AeReverseProxy
       proxy_uri = Addressable::URI.parse(uri)
 
       client = AeReverseProxy::Client.new(proxy_uri) do |config|
-        config.on_response do |code, response|
+        config.on_response do |_code, response|
           blacklist = [
             'Connection',           # Always close connection
             'Transfer-Encoding',    # Let Rails calculate this
-            'Content-Length'        # Let Rails calculate this
+            'Content-Length', # Let Rails calculate this
           ]
 
           response.each_capitalized do |key, value|
@@ -20,13 +22,13 @@ module AeReverseProxy
           end
         end
 
-        config.on_set_cookies do |code, response, set_cookies|
+        config.on_set_cookies do |_code, _response, set_cookies|
           set_cookies.each do |key, attributes|
             cookies[key] = attributes
           end
         end
 
-        config.on_redirect do |code, response, redirect_url|
+        config.on_redirect do |code, _response, redirect_url|
           request_uri = Addressable::URI.parse(request.url)
           redirect_uri = Addressable::URI.parse(redirect_url)
 
@@ -34,9 +36,9 @@ module AeReverseProxy
           # joining it with the request url
           redirect_uri = request_uri.join(redirect_url) if redirect_uri.host.nil?
 
-          unless redirect_uri.port.nil?
+          if !redirect_uri.port.nil? && (redirect_uri.port == proxy_uri.port)
             # Make sure it's consistent with our request port
-            redirect_uri.port = request.port if redirect_uri.port == proxy_uri.port
+            redirect_uri.port = request.port
           end
 
           redirect_to redirect_uri.to_s, status: code
@@ -48,7 +50,7 @@ module AeReverseProxy
           body = response.body.to_s
 
           if content_type&.match(/image/)
-            send_data body, content_type: content_type, disposition: "inline", status: code
+            send_data body, content_type: content_type, disposition: 'inline', status: code
           else
             render body: body, content_type: content_type, status: code
           end

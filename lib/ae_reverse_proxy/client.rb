@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rack'
 require 'addressable/uri'
 
@@ -5,21 +7,21 @@ module AeReverseProxy
   class Client
     attr_accessor :uri, :callbacks
 
-    CALLBACK_METHODS = [
-      :on_response,
-      :on_set_cookies,
-      :on_connect,
-      :on_success,
-      :on_redirect,
-      :on_missing,
-      :on_error,
-      :on_complete
+    CALLBACK_METHODS = %i[
+      on_response
+      on_set_cookies
+      on_connect
+      on_success
+      on_redirect
+      on_missing
+      on_error
+      on_complete
     ].freeze
 
     # Define callback setters
     CALLBACK_METHODS.each do |method|
       define_method(method) do |&block|
-        self.callbacks[method] = block
+        callbacks[method] = block
       end
     end
 
@@ -37,15 +39,13 @@ module AeReverseProxy
 
       # Setup headers for forwarding.
       target_request_headers = extract_http_request_headers(source_request.env).merge({
-        "ORIGIN" => uri.origin,
-        "HOST" => uri.authority,
+        'ORIGIN' => uri.origin,
+        'HOST' => uri.authority,
       })
       target_request.initialize_http_header(target_request_headers)
 
       # Setup basic auth.
-      if options.dig(:username) && options.dig(:password)
-        target_request.basic_auth(options.dig(:username), options.dig(:password))
-      end
+      target_request.basic_auth(options[:username], options[:password]) if options[:username] && options[:password]
 
       # Setup body.
       if target_request.request_body_permitted? && source_request.body
@@ -65,7 +65,7 @@ module AeReverseProxy
 
       # Setup HTTP SSL options.
       http_options = {}
-      http_options[:use_ssl] = (uri.scheme == "https")
+      http_options[:use_ssl] = (uri.scheme == 'https')
 
       # Make the request.
       target_response = nil
@@ -80,8 +80,9 @@ module AeReverseProxy
 
       callbacks[:on_response].call(payload)
 
-      if set_cookie_headers = target_response.to_hash['set-cookie']
+      if target_response.to_hash['set-cookie']
         set_cookies_hash = {}
+        set_cookie_headers = target_response.to_hash['set-cookie']
 
         set_cookie_headers.each do |set_cookie_header|
           set_cookie_hash = parse_cookie(set_cookie_header)
@@ -96,9 +97,7 @@ module AeReverseProxy
       when 200..299
         callbacks[:on_success].call(payload)
       when 300..399
-        if redirect_url = target_response['Location']
-          callbacks[:on_redirect].call(payload | [redirect_url])
-        end
+        callbacks[:on_redirect].call(payload | [target_response['Location']]) if target_response['Location']
       when 400..499
         callbacks[:on_missing].call(payload)
       when 500..599
@@ -110,27 +109,23 @@ module AeReverseProxy
       payload
     end
 
-  private
+    private
 
-    COOKIE_PARAM_PATTERN = /\A([^(),\/<>@;:\\\"\[\]?={}\s]+)(?:=([^;]*))?\Z/
-    COOKIE_SPLIT_PATTERN = /;\s*/
+    COOKIE_PARAM_PATTERN = %r{\A([^(),/<>@;:\\"\[\]?={}\s]+)(?:=([^;]*))?\Z}.freeze
+    COOKIE_SPLIT_PATTERN = /;\s*/.freeze
 
     def extract_http_request_headers(env)
-      headers = env.reject do |k, v|
-        !(/^HTTP_[A-Z_]+$/ === k) || k == "HTTP_VERSION" || v.nil?
-      end.map do |k, v|
-        [reconstruct_header_name(k), v]
-      end.inject(Rack::Utils::HeaderHash.new) do |hash, k_v|
-        k, v = k_v
-        hash[k] = v
-        hash
-      end
-
-      headers
+      env
+        .reject { |k, v| !(/^HTTP_[A-Z_]+$/ === k) || k == 'HTTP_VERSION' || v.nil? }
+        .map { |k, v| [reconstruct_header_name(k), v] }
+        .each_with_object(Rack::Utils::HeaderHash.new) do |k_v, hash|
+          k, v = k_v
+          hash[k] = v
+        end
     end
 
     def reconstruct_header_name(name)
-      name.sub(/^HTTP_/, "").gsub("_", "-")
+      name.sub(/^HTTP_/, '').gsub('_', '-')
     end
 
     def parse_cookie(cookie_str)
@@ -155,7 +150,7 @@ module AeReverseProxy
             cookie[:expires] = Time.parse(value)
           rescue ArgumentError
           end
-        when *[:httponly, :secure]
+        when :httponly, :secure
           cookie[key] = true
         else
           cookie[key] = value
