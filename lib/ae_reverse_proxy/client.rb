@@ -35,7 +35,7 @@ module AeReverseProxy
     def forward_request(env, options = {})
       # Initialize requests
       source_request = Rack::Request.new(env)
-      target_request = Net::HTTP.const_get(source_request.request_method.capitalize).new(source_request.path)
+      target_request = Net::HTTP.const_get(source_request.request_method.capitalize).new(source_request.fullpath)
 
       # Setup headers for forwarding.
       target_request_headers = extract_http_request_headers(source_request.env).merge({
