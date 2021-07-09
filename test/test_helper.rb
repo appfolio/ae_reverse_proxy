@@ -10,10 +10,19 @@ rescue Bundler::BundlerError => e
   exit e.status_code
 end
 
-$LOAD_PATH.unshift File.expand_path('../lib', __dir__)
-require 'ae_reverse_proxy'
-require 'rack/mock'
+if ENV['WITH_COVERAGE'] == 'true'
+  require 'simplecov'
+  SimpleCov.start do
+    enable_coverage :branch
+    add_filter %r{\A/test}
+  end
+end
 
+require 'ae_reverse_proxy'
 require 'minitest/autorun'
+require 'minitest/reporters'
 require 'mocha/minitest'
+require 'rack/mock'
 require 'webmock/minitest'
+
+MiniTest::Reporters.use!
