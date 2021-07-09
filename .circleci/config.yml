@@ -4,7 +4,7 @@ commands:
   bundle_install_and_test:
     steps:
       - checkout
-      - run: sudo gem update --system
+      - run: sudo gem update --system 3.2.17
       - run: bundle install
       - run: bundle exec ruby -e "require 'ae_reverse_proxy'"
       - run: bundle exec rubocop
