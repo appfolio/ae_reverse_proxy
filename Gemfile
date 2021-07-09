@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org' do
-  group :test, :development do
-    gem 'bundler', '>= 1.10.4', '< 3'
-    gem 'minitest', '>= 5.8', '< 6'
-    gem 'mocha', '>= 1.11', '< 2'
-    gem 'pry'
-    gem 'rake', '>= 13', '< 14'
-    gem 'rubocop', '~> 1.8', require: false
-    gem 'webmock', '~> 3.11.1'
-  end
+  gem 'appraisal', '>= 2.3', '< 3'
+  gem 'bundler', '>= 2', '< 3'
+  gem 'minitest', '>= 5.8', '< 6'
+  gem 'minitest-reporters', '>= 1.4', '< 2'
+  gem 'mocha', '>= 1.13', '< 2'
+  gem 'rake', '>= 13', '< 13.0.4'
+  gem 'rubocop', '>= 1.8', '< 2', require: false
+  gem 'simplecov', '>= 0.21', '< 1', group: :test, require: false
+  gem 'webmock', '>= 3.13', '< 4'
 end
 
 gemspec
