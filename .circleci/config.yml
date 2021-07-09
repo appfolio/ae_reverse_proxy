@@ -1,17 +1,30 @@
 version: 2.1
 
-jobs:
-  test_and_lint:
-    docker:
-      - image: circleci/ruby:2.6.3
+commands:
+  bundle_install_and_test:
     steps:
       - checkout
-      - run: gem install bundler -v 2.2.5
+      - run: sudo gem update --system
       - run: bundle install
-      - run: bundle exec rake test
+      - run: bundle exec ruby -e "require 'ae_reverse_proxy'"
       - run: bundle exec rubocop
+      - run: bundle exec appraisal install
+      - run: bundle exec appraisal rake test
+
+jobs:
+  test-ruby-263:
+    steps:
+      - bundle_install_and_test
+    docker:
+      - image: circleci/ruby:2.6.3
+  test-ruby-271:
+    steps:
+      - bundle_install_and_test
+    docker:
+      - image: circleci/ruby:2.7.1
 
 workflows:
-  test_and_lint:
+  rc:
     jobs:
-      - test_and_lint
+      - test-ruby-263
+      - test-ruby-271
