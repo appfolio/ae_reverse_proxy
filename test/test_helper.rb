@@ -25,4 +25,4 @@ require 'mocha/minitest'
 require 'rack/mock'
 require 'webmock/minitest'
 
-MiniTest::Reporters.use!
+MiniTest::Reporters.use! unless ENV['RM_INFO']

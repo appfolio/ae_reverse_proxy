@@ -14,15 +14,21 @@ gem 'ae_reverse_proxy'
 
 And then execute:
 
-    $ bundle install
+```bash
+$ bundle install
+```
 
 Or install it yourself as:
 
-    $ gem install ae_reverse_proxy
+```bash
+$ gem install ae_reverse_proxy
+```
 
 Use it in a console with:
 
-    $ ./console
+```bash
+$ ./console
+```
 
 ## Usage
 
