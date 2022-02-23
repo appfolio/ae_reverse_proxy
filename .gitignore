@@ -1,2 +1,10 @@
 /.bundle/
+/coverage/
+/doc/
+/pkg/
 /tmp/
+
+# Ignore generated files
+Gemfile.lock
+gemfiles/.bundle
+gemfiles/*.gemfile.lock

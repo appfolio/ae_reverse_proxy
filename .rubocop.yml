@@ -1,7 +1,9 @@
 AllCops:
-  TargetRubyVersion: 2.4.0
+  TargetRubyVersion: 2.6
   SuggestExtensions: false
   NewCops: disable
+  Exclude:
+    - gemfiles/**/*
 Layout/FirstArrayElementIndentation:
   EnforcedStyle: consistent
 Layout/FirstHashElementIndentation:

@@ -1,17 +1,21 @@
 version: 2.1
 
-jobs:
-  test_and_lint:
-    docker:
-      - image: circleci/ruby:2.6.3
-    steps:
-      - checkout
-      - run: gem install bundler -v 2.2.5
-      - run: bundle install
-      - run: bundle exec rake test
-      - run: bundle exec rubocop
+orbs:
+  gem-tool: appfolio/gem-tool@volatile
 
 workflows:
-  test_and_lint:
+  rc:
     jobs:
-      - test_and_lint
+      - gem-tool/rake_test:
+          name: test_ruby-<< matrix.ruby_version >>
+          executor_tag: ruby
+          matrix:
+            parameters:
+              ruby_version:
+                - '3.1.0'
+                - '2.7.5'
+                - '2.6.9'
+          after-appraisal-install-steps:
+            - run:
+                name: Run Rubocop
+                command: bundle exec rubocop
