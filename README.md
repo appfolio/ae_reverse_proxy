@@ -42,6 +42,8 @@ class ImageController < ActionController::Base
 end
 ```
 
+Reference implemintation: https://github.com/appfolio/screenings_app/blob/master/app/controllers/concerns/ssuid_forwardable.rb
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
