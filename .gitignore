@@ -1,10 +1,12 @@
 /.bundle/
 /coverage/
-/doc/
 /pkg/
 /tmp/
 
+# Only generate Appraisal gemfiles on CI
+/gemfiles/
+
 # Ignore generated files
 Gemfile.lock
-gemfiles/.bundle
-gemfiles/*.gemfile.lock
+*.log
+*.gem
