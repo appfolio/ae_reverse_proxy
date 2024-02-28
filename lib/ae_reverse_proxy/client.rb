@@ -118,10 +118,14 @@ module AeReverseProxy
       env
         .reject { |k, v| !(/^HTTP_[A-Z_]+$/ === k) || k == 'HTTP_VERSION' || v.nil? }
         .map { |k, v| [reconstruct_header_name(k), v] }
-        .each_with_object(Rack::Utils::HeaderHash.new) do |k_v, hash|
+        .each_with_object(headers.new) do |k_v, hash|
           k, v = k_v
           hash[k] = v
         end
+    end
+
+    def headers
+      Rack.release >= '3' ? Rack::Headers : Rack::Utils::HeaderHash
     end
 
     def reconstruct_header_name(name)
