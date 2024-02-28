@@ -6,6 +6,8 @@
 
 **Merged pull requests:**
 
+- Fix minitest deprecation [\#6](https://github.com/appfolio/ae_reverse_proxy/pull/6) ([Maimer](https://github.com/Maimer))
+- Updates for Ruby `2.7.7`, `3.1.3`, `3.2.1` [\#5](https://github.com/appfolio/ae_reverse_proxy/pull/5) ([Maimer](https://github.com/Maimer))
 - Appraise ruby 3 [\#4](https://github.com/appfolio/ae_reverse_proxy/pull/4) ([Maimer](https://github.com/Maimer))
 - Update rexml indirect dependency in lock file [\#2](https://github.com/appfolio/ae_reverse_proxy/pull/2) ([joelbandi](https://github.com/joelbandi))
 - Include url params when forwarding request [\#1](https://github.com/appfolio/ae_reverse_proxy/pull/1) ([stanleyphu](https://github.com/stanleyphu))
