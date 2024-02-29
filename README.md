@@ -42,7 +42,7 @@ class ImageController < ActionController::Base
 end
 ```
 
-Reference implemintation: https://github.com/appfolio/screenings_app/blob/master/app/controllers/concerns/ssuid_forwardable.rb
+Reference implementation: https://github.com/appfolio/screenings_app/blob/master/app/controllers/concerns/ssuid_forwardable.rb
 
 ## License
 

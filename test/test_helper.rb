@@ -19,6 +19,7 @@ if ENV['WITH_COVERAGE'] == 'true'
 end
 
 require 'ae_reverse_proxy'
+require 'debug'
 require 'minitest/autorun'
 require 'minitest/reporters'
 require 'mocha/minitest'
