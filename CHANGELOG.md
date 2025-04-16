@@ -2,7 +2,19 @@
 
 ## [Unreleased](https://github.com/appfolio/ae_reverse_proxy/tree/HEAD)
 
-[Full Changelog](https://github.com/appfolio/ae_reverse_proxy/compare/v2.2.0...HEAD)
+[Full Changelog](https://github.com/appfolio/ae_reverse_proxy/compare/v2.3.0...HEAD)
+
+**Merged pull requests:**
+
+- \[BANK-1370\] Appraise ruby 3.4 [\#8](https://github.com/appfolio/ae_reverse_proxy/pull/8) ([Maimer](https://github.com/Maimer))
+
+## [v2.3.0](https://github.com/appfolio/ae_reverse_proxy/tree/v2.3.0) (2025-04-16)
+
+[Full Changelog](https://github.com/appfolio/ae_reverse_proxy/compare/v2.2.0...v2.3.0)
+
+## [v2.2.0](https://github.com/appfolio/ae_reverse_proxy/tree/v2.2.0) (2024-02-29)
+
+[Full Changelog](https://github.com/appfolio/ae_reverse_proxy/compare/83865a90401a3783f934be3e73db57c4d5d06763...v2.2.0)
 
 **Merged pull requests:**
 
@@ -12,10 +24,6 @@
 - Appraise ruby 3 [\#4](https://github.com/appfolio/ae_reverse_proxy/pull/4) ([Maimer](https://github.com/Maimer))
 - Update rexml indirect dependency in lock file [\#2](https://github.com/appfolio/ae_reverse_proxy/pull/2) ([joelbandi](https://github.com/joelbandi))
 - Include url params when forwarding request [\#1](https://github.com/appfolio/ae_reverse_proxy/pull/1) ([stanleyphu](https://github.com/stanleyphu))
-
-## [v2.2.0](https://github.com/appfolio/ae_reverse_proxy/tree/v2.2.0) (2024-02-29)
-
-[Full Changelog](https://github.com/appfolio/ae_reverse_proxy/compare/83865a90401a3783f934be3e73db57c4d5d06763...v2.2.0)
 
 
 
