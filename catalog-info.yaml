@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  title: ae_reverse_proxy
+  description: Implementation of a rack compliant reverse proxy.
+  tags: []
+  annotations:
+    appfolio.com/package-location: https://rubygems.org/gems/ae_reverse_proxy
+    appfolio.com/package-type: gem
+    circleci.com/project-slug: github/appfolio/ae_reverse_proxy
+  name: ae-reverse-proxy
+spec:
+  type: library
+  lifecycle: maintenance
+  owner: engineering
