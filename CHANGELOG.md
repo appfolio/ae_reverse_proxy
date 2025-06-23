@@ -2,15 +2,24 @@
 
 ## [Unreleased](https://github.com/appfolio/ae_reverse_proxy/tree/HEAD)
 
-[Full Changelog](https://github.com/appfolio/ae_reverse_proxy/compare/v2.3.0...HEAD)
+[Full Changelog](https://github.com/appfolio/ae_reverse_proxy/compare/v2.3.1...HEAD)
 
 **Merged pull requests:**
 
-- \[BANK-1370\] Appraise ruby 3.4 [\#8](https://github.com/appfolio/ae_reverse_proxy/pull/8) ([Maimer](https://github.com/Maimer))
+- \[DJ-2212\] Allow External Redirects [\#10](https://github.com/appfolio/ae_reverse_proxy/pull/10) ([XuperBryan](https://github.com/XuperBryan))
+- \[KNOW-154\]: Use CODEOWNERS to determine Developer Portal catalog ownership [\#9](https://github.com/appfolio/ae_reverse_proxy/pull/9) ([modethirteen](https://github.com/modethirteen))
+
+## [v2.3.1](https://github.com/appfolio/ae_reverse_proxy/tree/v2.3.1) (2025-06-23)
+
+[Full Changelog](https://github.com/appfolio/ae_reverse_proxy/compare/v2.3.0...v2.3.1)
 
 ## [v2.3.0](https://github.com/appfolio/ae_reverse_proxy/tree/v2.3.0) (2025-04-16)
 
 [Full Changelog](https://github.com/appfolio/ae_reverse_proxy/compare/v2.2.0...v2.3.0)
+
+**Merged pull requests:**
+
+- \[BANK-1370\] Appraise ruby 3.4 [\#8](https://github.com/appfolio/ae_reverse_proxy/pull/8) ([Maimer](https://github.com/Maimer))
 
 ## [v2.2.0](https://github.com/appfolio/ae_reverse_proxy/tree/v2.2.0) (2024-02-29)
 
