@@ -41,7 +41,7 @@ module AeReverseProxy
             redirect_uri.port = request.port
           end
 
-          redirect_to redirect_uri.to_s, status: code
+          redirect_to redirect_uri.to_s, status: code, allow_other_host: true
           return
         end
 
