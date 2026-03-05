@@ -2,16 +2,25 @@
 
 ## [Unreleased](https://github.com/appfolio/ae_reverse_proxy/tree/HEAD)
 
-[Full Changelog](https://github.com/appfolio/ae_reverse_proxy/compare/v2.3.1...HEAD)
+[Full Changelog](https://github.com/appfolio/ae_reverse_proxy/compare/v2.4.0...HEAD)
+
+**Merged pull requests:**
+
+- \[BANK-1738\] Update supported Ruby versions to 3.3.10, 3.4.8, 4.0.1 [\#12](https://github.com/appfolio/ae_reverse_proxy/pull/12) ([Maimer](https://github.com/Maimer))
+- Configure NPM and Yarn to use custom NPM package repository [\#11](https://github.com/appfolio/ae_reverse_proxy/pull/11) ([appfolio-sourcegraph-batch-changes[bot]](https://github.com/apps/appfolio-sourcegraph-batch-changes))
+
+## [v2.4.0](https://github.com/appfolio/ae_reverse_proxy/tree/v2.4.0) (2026-03-05)
+
+[Full Changelog](https://github.com/appfolio/ae_reverse_proxy/compare/v2.3.1...v2.4.0)
+
+## [v2.3.1](https://github.com/appfolio/ae_reverse_proxy/tree/v2.3.1) (2025-06-23)
+
+[Full Changelog](https://github.com/appfolio/ae_reverse_proxy/compare/v2.3.0...v2.3.1)
 
 **Merged pull requests:**
 
 - \[DJ-2212\] Allow External Redirects [\#10](https://github.com/appfolio/ae_reverse_proxy/pull/10) ([XuperBryan](https://github.com/XuperBryan))
 - \[KNOW-154\]: Use CODEOWNERS to determine Developer Portal catalog ownership [\#9](https://github.com/appfolio/ae_reverse_proxy/pull/9) ([modethirteen](https://github.com/modethirteen))
-
-## [v2.3.1](https://github.com/appfolio/ae_reverse_proxy/tree/v2.3.1) (2025-06-23)
-
-[Full Changelog](https://github.com/appfolio/ae_reverse_proxy/compare/v2.3.0...v2.3.1)
 
 ## [v2.3.0](https://github.com/appfolio/ae_reverse_proxy/tree/v2.3.0) (2025-04-16)
 
