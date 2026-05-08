@@ -5,6 +5,10 @@ on:
     branches:
       - main
       - master
+    paths:
+      - 'lib/**'
+      - 'ae_reverse_proxy.gemspec'
+      - 'LICENSE.txt'
 
 permissions:
   contents: write
