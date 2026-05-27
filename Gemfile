@@ -7,7 +7,7 @@ source 'https://rubygems.org' do
   gem 'bundler', '>= 2.6', '< 5'
   gem 'debug', '>= 1.10', '< 2'
   gem 'minitest', '>= 5.27', '< 6'
-  gem 'minitest-reporters', '>= 1.7', '< 2'
+  gem 'minitest-reporters', '>= 1.8', '< 2'
   gem 'mocha', '>= 3', '< 4'
   gem 'rake', '>= 13.3', '< 14'
   gem 'simplecov', '>= 0.22', '< 1', group: :test, require: false
