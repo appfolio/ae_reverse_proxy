@@ -2,13 +2,13 @@
 
 if Gem::Requirement.new(['>= 3.3', '< 4.1']).satisfied_by?(Gem::Version.new(RUBY_VERSION))
   appraise "ruby-#{RUBY_VERSION}_rack2" do
-    source 'https://rubygems.org' do
+    source 'https://appfolio.jfrog.io/artifactory/api/gems/appfolio-ae_reverse_proxy-gem/' do
       gem 'rack', '~> 2.2'
     end
   end
 
   appraise "ruby-#{RUBY_VERSION}_rack3" do
-    source 'https://rubygems.org' do
+    source 'https://appfolio.jfrog.io/artifactory/api/gems/appfolio-ae_reverse_proxy-gem/' do
       gem 'rack', '~> 3.0'
     end
   end
