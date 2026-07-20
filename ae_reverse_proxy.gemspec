@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.platform              = Gem::Platform::RUBY
   spec.author                = 'AppFolio'
   spec.email                 = 'opensource@appfolio.com'
-  spec.description           = 'Gem for reverse proxying requests.'
-  spec.summary               = spec.description
+  spec.description           = 'Provides an implementation of a Rack-compliant reverse proxy, allowing Rack-based applications to forward incoming requests to upstream servers.'
+  spec.summary               = 'Gem for reverse proxying requests.'
   spec.homepage              = 'https://github.com/appfolio/ae_reverse_proxy'
   spec.license               = 'MIT'
   spec.files                 = Dir['**/*'].select { |f| f[%r{^(lib/|LICENSE.txt|ae_reverse_proxy\.gemspec)}] }
